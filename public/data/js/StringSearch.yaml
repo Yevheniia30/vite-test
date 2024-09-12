@@ -1,0 +1,205 @@
+- header: "String Search Methods"
+  portions:
+    - text:
+        - |
+          indexOf(),
+          lastIndexOf(),
+          search(),
+          match(),
+          matchAll(),
+          includes(),
+          startsWith(),
+          endsWith()
+
+- header: "indexOf()"
+  portions:
+    - text:
+        - |
+          The indexOf() method returns the index (position) 
+          the first occurrence of a string in a string
+        - |
+          Note
+        - |
+          JavaScript counts positions from zero.
+        - |
+          0 is the first position in a string, 
+          1 is the second, 
+          2 is the third, ...
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.indexOf("locate");
+          // index -> 7
+
+- header: "lastIndexOf()"
+  portions:
+    - text:
+        - |
+          The lastIndexOf() method returns 
+          the index of the last occurrence 
+          of a specified text in a string
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.lastIndexOf("locate");
+          // index -> 21
+    - text:
+        - |
+          Both indexOf(), and lastIndexOf() 
+          return -1 if the text is not found          
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.lastIndexOf("John");          
+          // index -> -1
+    - text:
+        - |
+          Both methods accept 
+          a second parameter as the starting position 
+          for the search          
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.indexOf("locate", 15);
+          // index -> 21
+    - text:
+        - |
+          The lastIndexOf() methods searches backwards 
+          (from the end to the beginning), 
+          meaning: if the second parameter is 15, 
+          the search starts at position 15, 
+          and searches to the beginning of the string.
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          text.lastIndexOf("locate", 15);
+          // index -> 7
+          
+- header: "search()"
+  portions:
+    - text:
+        - |
+          The search() method searches a string for a string 
+          (or a regular expression) 
+          and returns the position of the match
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.search("locate");                
+          // index -> 7
+    - text:
+        - |
+          /locate/ - is a regular expression. 
+        - |
+          Slashes (/) on either side indicate that 
+          it is a regular expression. 
+        - |
+          In this case, 
+          it looks for an occurrence 
+          of the word "locate".
+      example: |
+          let text = "Please locate where 'locate' occurs!";
+          let index = text.search(/locate/);
+          // index -> 7
+    - text:
+        - |
+          Did You Notice?
+        - |
+          The two methods, 
+          indexOf() and search(), 
+          are equal?
+        - |
+          They accept the same arguments (parameters), 
+          and return the same value?
+        - |
+          The two methods are NOT equal.
+        - |
+          These are the differences:
+        - |
+          * The search() method cannot take 
+          a second start position argument.
+        - |
+          * The indexOf() method cannot take 
+          powerful search values 
+          (regular expressions).
+        - |
+          You will learn more about regular expressions 
+          in a later chapter.
+          
+- header: "match()"
+  portions:
+    - text:
+        - |
+          The match() method returns an array 
+          containing the results of matching a string 
+      example: |
+          let text = "The rain in SPAIN stays mainly in the plain"; 
+          const myArr = text.match(/\b\w*n\b/gi);
+          // myArr -> [rain, in, SPAIN, in, plain]
+
+- header: "matchAll()"
+  portions:
+    - text:
+        - |
+          The matchAll() method returns an iterator 
+          containing the results of matching a string 
+        - |
+          Notes
+        - |
+          matchAll() is an ES2020 feature
+      example: |
+          let text = "I love cats. Cats are very easy to love. Cats are very popular."
+          const iterator = text.matchAll(/Cats/gi); 
+          // Array.from(iterator); -> [cats, Cats, Cats]        
+
+- header: "includes()"
+  portions:
+    - text:
+        - |       
+          The includes() method returns true 
+          if a string contains a specified value   
+        - |
+          Otherwise it returns false
+      example: |
+          let text = "Hello world, welcome to the universe.";
+          text.includes("world"); // -> true          
+    - text:
+        - |   
+          Check if a string includes "world". 
+          Start at position 12          
+      example: |
+          let text = "Hello world, welcome to the universe.";
+          text.includes("world", 12); // -> false
+
+- header: "startsWith()"
+  portions:
+    - text:
+        - |           
+          The startsWith() method returns true 
+          if a string begins with a specified value
+      example: |
+          let text = "Hello world, welcome to the universe.";
+          text.startsWith("Hello");  // -> true          
+    - text:
+        - |    
+          A start position for the search 
+          can be specified   
+      example: |
+          let text = "Hello world, welcome to the universe.";
+          text.startsWith("world", 6); // -> true     
+    - text:
+        - |    
+          Notes
+        - |    
+          startsWith() is case sensitive
+       
+- header: "endsWith()"
+  portions:
+    - text:
+        - |        
+          The endsWith() method returns true 
+          if a string ends with a specified value
+      example: |
+          let text = "John Doe";
+          text.endsWith("Doe"); // -> true   
+    - text:
+        - |        
+          Check if the 11 first characters of a string 
+          ends with "world"
+      example: |
+          let text = "Hello world, welcome to the universe.";
+          text.endsWith("world", 11); // -> true
